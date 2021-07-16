@@ -1,16 +1,7 @@
 import request from "@/utils/request";
 
-const userApi = {
-  Login: '/auth/login',
-  Logout: '/auth/logout',
-  ForgePassword: '/auth/forge-password',
-  Register: '/auth/register',
-  twoStepCode: '/auth/2step-code',
-  SendSms: '/account/sms',
-  SendSmsErr: '/account/sms_err',
-  // get my info
-  UserInfo: '/user/info',
-  UserMenu: '/user/nav'
+const TestApi = {
+  ApiOne:"test/info"
 }
 
 /**
@@ -24,10 +15,12 @@ const userApi = {
  * @param parameter
  * @returns {*}
  */
-export function login (parameter) {
+export function getTestInfo () {
   return request({
-    url: userApi.Login,
-    method: 'post',
-    data: parameter
+    url: TestApi.ApiOne,
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
   })
 }

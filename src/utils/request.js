@@ -1,6 +1,6 @@
 import axios from "axios";
 import { notification } from "ant-design-vue";
-debugger;
+import { VueAxios } from './axios'
 // import { config } from "vue/types/umd";
 // import { response } from "express";
 
@@ -56,4 +56,16 @@ request.interceptors.response.use((response)=>{
   return response.data
 },errorHandler)
 
+const installer = {
+  vm: {},
+  install (Vue) {
+    Vue.use(VueAxios, request)
+  }
+}
+
 export default request
+
+export {
+  installer as VueAxios,
+  request as axios
+}
